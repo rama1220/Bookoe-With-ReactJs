@@ -169,7 +169,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 5rem;
-  
+
   justify-content: space-between;
 }
 .box-book {
@@ -574,6 +574,10 @@ span {
     flex-direction: column;
     align-items: center;
   }
+.hero-right img{
+  width: 110px;
+}
+
 }
 
 @media screen and (max-width: 450px) {
@@ -618,15 +622,58 @@ span {
     margin-bottom: 10px;
     width: 350px;
   }
-.icon{
-  display: none;
-}
-ul{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-left: -100px;
+  .icon {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: -100px;
+  }
+  
 }
 
+.hero-right .c1 {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -20px;
+  z-index: 1;
+  transition: ease-in-out .3s;
+
+
+}
+
+.hero-right .c2 {
+  position: absolute;
+  margin-right: -70px;
+  transition: ease-in-out .3s;
+  z-index: 1;
+}
+.hero-right .c3 {
+  margin-right: -150px;
+  margin-top: 20px;
+  transition: ease-in-out .3s;
+
+}
+
+.hero-right .c1:hover{
+
+   transform: translateX(-50px);
+   cursor: pointer;
+   
+}
+
+.hero-right .c2:hover{
+
+   transform: translateX(100px);
+   cursor: pointer;
+
+   
+}
+.hero-right .c3:hover{
+
+   transform: translateX(100px);
+   cursor: pointer;
 
 }
