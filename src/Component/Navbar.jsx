@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import icon from "../assets/img/iconbook.png";
-import TextInput from "../../TextInput";
 import { useSearch } from "../../SearchContext";
 import { useNavigate } from "react-router-dom";
+import icon from "../assets/img/iconbook.png";
+import TextInput from "../../TextInput";
 
 export default function Navbar() {
   const { updateSearchTerm } = useSearch();
@@ -14,13 +14,14 @@ export default function Navbar() {
   const handleInput = (e) => {
     const term = e.target.value;
     setSearchInput(term);
-    updateSearchTerm(term);
+   
   };
 
   const handleEnterKeyPress = (e, navigate) => {
     const searchInputValue = searchInput.trim();
 
     if (e.key === "Enter" && searchInputValue !== "") {
+      updateSearchTerm(searchInputValue);
       navigate("/search");
     }
   };
@@ -45,7 +46,7 @@ export default function Navbar() {
           <div className="nav-right">
             <ul>
               <li>
-                <NavLink to="/" className="nav-link">
+                <NavLink to="/" className="nav-link" id>
                   <h4>All</h4>
                 </NavLink>
               </li>
