@@ -14,8 +14,8 @@ export default function Hero() {
   }
 
   const data = dataEndpoint1;
-  const sortedData = Array.isArray(data?.data) ? data?.data.slice().sort((a, b) => b.rating - a.rating) : [];
-  const datas = sortedData.slice(0, 1);
+  const sortedData = Array.isArray(data?.data) ? data?.data.sort((a, b) => b.rating - a.rating) : [];
+  const datas = sortedData.slice(0, 10);
   console.log(datas);
 
   if (!datas) {
@@ -32,7 +32,9 @@ export default function Hero() {
           <div className="sinopsis">{datas?.[0]?.synopsis}</div>
           <div className="button-nav">
             <Link to={`detail/${datas?.[0]?.id}`} className="detail-btn">
-              <button className="btn-nav">READ BOOK <ArrowRight color="white" size={20} /></button>
+              <button className="btn-nav">
+                READ BOOK <ArrowRight color="white" size={20} />
+              </button>
             </Link>
             <Link to="/seeDetail" className="navSee">
               <button className="btnNav">SEE ALL RECOMMENDATIONS</button>
@@ -40,7 +42,9 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-right">
-          <img src={datas?.[0]?.image_url} alt="" />
+          <img src={datas?.[2]?.image_url} alt="" className="c2"/>
+          <img src={datas?.[0]?.image_url} alt="" className="c1"/>
+          <img src={datas?.[5]?.image_url} alt="" className="c3" />
         </div>
       </div>
     </div>
