@@ -4,7 +4,7 @@ import TopPicks from "./src/Component/TopPicks";
 import All from "./src/Component/All";
 import App from "./src/App";
 import Detail from "./src/Component/Detail";
-import SeeAll from "./src/Component/seeAll";
+import SeeAll from "./src/Component/SeeDetailAll";
 import Search from "./src/Component/Search";
 import Notif404 from "./src/Component/Notif404";
 const Router = createBrowserRouter([
