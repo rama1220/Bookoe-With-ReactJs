@@ -9,12 +9,13 @@ import TextInput from "../../TextInput";
 export default function Navbar() {
   const { updateSearchTerm } = useSearch();
   const [searchInput, setSearchInput] = useState("");
+  const [navActive, setNavactive] = useState(false);
+  const [burger, setBurger] = useState(false);
   const navigate = useNavigate();
 
   const handleInput = (e) => {
     const term = e.target.value;
     setSearchInput(term);
-   
   };
 
   const handleEnterKeyPress = (e, navigate) => {
@@ -22,8 +23,14 @@ export default function Navbar() {
 
     if (e.key === "Enter" && searchInputValue !== "") {
       updateSearchTerm(searchInputValue);
+      localStorage.setItem("item", searchInputValue);
       navigate("/search");
     }
+  };
+
+  const toggleNavActive = () => {
+    setNavactive(!navActive);
+    setBurger(!burger)
   };
 
   return (
@@ -43,10 +50,10 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="nav-right">
+          <div className={`nav-right ${navActive ? "nav-active" : ""}`}>
             <ul>
               <li>
-                <NavLink to="/" className="nav-link" id>
+                <NavLink to="/" className="nav-link">
                   <h4>All</h4>
                 </NavLink>
               </li>
@@ -61,12 +68,17 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <TextInput required={true} label="" placeholder="Search your book..." onChange={handleInput} onKeyDown={(e) => handleEnterKeyPress(e, navigate)} />
+                <TextInput required={true} label="" placeholder="Search your book..." onChange={handleInput} onKeyDown={(e) => handleEnterKeyPress(e, navigate)} className="input" />
               </li>
               <li>
-                <button>Edit List</button>
+                <button>Book List</button>
               </li>
             </ul>
+          </div>
+          <div className={`burger ${burger ? "toggle-burger" : ""}`} onClick={toggleNavActive}>
+            <div className="line-1"></div>
+            <div className="line-2"></div>
+            <div className="line-3"></div>
           </div>
         </div>
       </div>

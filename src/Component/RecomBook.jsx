@@ -9,6 +9,7 @@ export default function RecomBook() {
   }
   const data = dataEndpoint2;
   const datas = Array.isArray(data?.data) ? data?.data.slice(2, 6) : [];
+
   return (
     <>
       <div className="recom-container">
@@ -20,7 +21,7 @@ export default function RecomBook() {
               </div>
               <div className="recom-detail">
                 <div className="box-title">
-                  <h4>{book.title}</h4>
+                  <h4>{`${book.title.slice(0,65)}...`}</h4>
                   <p className="author">by {book.author.name || "Unknown Author"}</p>
                 </div>
                 <div className="box-rating">
@@ -31,6 +32,7 @@ export default function RecomBook() {
                 <Link to={`detail/${book.id}`} className="detail-btn">
                   <button className="full-btn">Read Book </button>
                 </Link>
+                
               </div>
             </div>
           ))}

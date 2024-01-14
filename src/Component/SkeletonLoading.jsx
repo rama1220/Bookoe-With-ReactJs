@@ -1,9 +1,10 @@
-export default function NotFound() {
+
+export default function SkeletonLoading() {
   return (
     <>
       <div className="notfound">
         <div className="not-container">
-          <h1>Book Not Found.</h1>
+          <h1>Loading...</h1>
         </div>
       </div>
     </>

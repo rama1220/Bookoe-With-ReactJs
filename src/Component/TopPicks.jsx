@@ -32,7 +32,7 @@ export default function TopPicks() {
                 </div>
                 <div className="list-detail">
                   <div className="list-title">
-                    <h4>{book.title}</h4>
+                    <h4>{`${book.title.slice(0, 65)}`}</h4>
                   </div>
                   <div className="list-author">by {book.author.name}</div>
                   <div className="list-rating">{CreateStars(book.rating)}</div>

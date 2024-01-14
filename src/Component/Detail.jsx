@@ -13,10 +13,9 @@ export default function Detail() {
     return <div>Failed to load</div>;
   }
 
-
-const date = data?.created_at ? new Date(data.created_at) : null;
-const options = { day: "numeric", month: "long", year: "numeric" };
-const formattedDate = date ? new Intl.DateTimeFormat("id-ID", options).format(date) : "Invalid Date";
+  const date = data?.created_at ? new Date(data.created_at) : null;
+  const options = { day: "numeric", month: "long", year: "numeric" };
+  const formattedDate = date ? new Intl.DateTimeFormat("en-US", options).format(date) : "Invalid Date";
 
   return (
     <>
@@ -35,7 +34,7 @@ const formattedDate = date ? new Intl.DateTimeFormat("id-ID", options).format(da
               </div>
             </div>
             <p className="det-sinopsis">{data?.synopsis}</p>
-            <h5>First Published  {formattedDate }</h5>
+            <h5>First Published {formattedDate}</h5>
           </div>
         </div>
       </div>

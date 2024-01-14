@@ -42,9 +42,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-right">
-          <img src={datas?.[2]?.image_url} alt="" className="c2"/>
-          <img src={datas?.[0]?.image_url} alt="" className="c1"/>
-          <img src={datas?.[5]?.image_url} alt="" className="c3" />
+          <img src={datas?.[0]?.image_url} alt=""/>
         </div>
       </div>
     </div>
