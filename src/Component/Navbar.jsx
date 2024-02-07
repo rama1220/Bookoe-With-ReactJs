@@ -5,6 +5,7 @@ import { useSearch } from "../../SearchContext";
 import { useNavigate } from "react-router-dom";
 import icon from "../assets/img/iconbook.png";
 import TextInput from "../../TextInput";
+import { handleClick } from "../Component/Scroolbar";
 
 export default function Navbar() {
   const { updateSearchTerm } = useSearch();
@@ -30,7 +31,7 @@ export default function Navbar() {
 
   const toggleNavActive = () => {
     setNavactive(!navActive);
-    setBurger(!burger)
+    setBurger(!burger);
   };
 
   return (
@@ -52,22 +53,22 @@ export default function Navbar() {
           </div>
           <div className={`nav-right ${navActive ? "nav-active" : ""}`}>
             <ul>
-              <li>
+              <li onClick={handleClick()}>
                 <NavLink to="/" className="nav-link">
                   <h4>All</h4>
                 </NavLink>
               </li>
-              <li>
+              <li onClick={handleClick()}>
                 <NavLink to="/latest" className="nav-link">
                   <h4>Latest</h4>
                 </NavLink>
               </li>
-              <li>
+              <li onClick={handleClick()}>
                 <NavLink to="/toppicks" className="nav-link">
                   <h4>Top Picks</h4>
                 </NavLink>
               </li>
-              <li>
+              <li onClick={handleClick()}>
                 <TextInput required={true} label="" placeholder="Search your book..." onChange={handleInput} onKeyDown={(e) => handleEnterKeyPress(e, navigate)} className="input" />
               </li>
               <li>

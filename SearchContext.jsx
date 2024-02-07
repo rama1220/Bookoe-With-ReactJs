@@ -1,12 +1,16 @@
 /* eslint-disable react-refresh/only-export-components */
-import  { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
+  useEffect(() => {
+    if(localStorage.getItem("item", searchTerm) !== "null"){
+      setSearchTerm(localStorage.getItem("item"))
+    }
+  },[searchTerm]);
   const updateSearchTerm = (term) => {
     setSearchTerm(term);
   };

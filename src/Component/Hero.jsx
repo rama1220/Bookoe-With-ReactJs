@@ -4,7 +4,7 @@ import { ArrowRight } from "react-bootstrap-icons";
 import { Endpoint1 } from "../../Endpoint";
 import { CreateStars } from "../../CreateStars.jsx";
 import { Link } from "react-router-dom";
-
+import {handleClick} from "../Component/Scroolbar";
 export default function Hero() {
   const { data: dataEndpoint1, error: errorEndpoint1 } = Endpoint1();
 
@@ -32,17 +32,19 @@ export default function Hero() {
           <div className="sinopsis">{datas?.[0]?.synopsis}</div>
           <div className="button-nav">
             <Link to={`detail/${datas?.[0]?.id}`} className="detail-btn">
-              <button className="btn-nav">
+              <button className="btn-nav" onClick={handleClick}>
                 READ BOOK <ArrowRight color="white" size={20} />
               </button>
             </Link>
             <Link to="/seeDetail" className="navSee">
-              <button className="btnNav">SEE ALL RECOMMENDATIONS</button>
+              <button className="btnNav" onClick={handleClick}>
+                SEE ALL RECOMMENDATIONS
+              </button>
             </Link>
           </div>
         </div>
         <div className="hero-right">
-          <img src={datas?.[0]?.image_url} alt=""/>
+          <img src={datas?.[0]?.image_url} alt="" />
         </div>
       </div>
     </div>
